@@ -1,4 +1,6 @@
 
+//***************************** Player Objects *******************************//
+
 const player1 = {
   name: 'Player 1',
   label: 'X',
@@ -24,82 +26,115 @@ const queryGame = function () {
   if ($('.one').text().includes('X') &&
       $('.two').text().includes('X') &&
       $('.three').text().includes('X')) {
-      console.log(`${'Player 1'} wins!`);
+        $('.wrapper').addClass('game-over');
+        winner('.one', '.two', '.three');
+        scoreBoard('.p1-score');
     }
     else if ($('.one').text().includes('O') &&
              $('.two').text().includes('O') &&
              $('.three').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.one', '.two', '.three');
+               scoreBoard('.p2-score');
     }
     else if ($('.four').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.six').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.four', '.five', '.six');
+               scoreBoard('.p1-score');
     }
     else if ($('.four').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.six').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.four', '.five', '.six');
+               scoreBoard('.p2-score');
+
     }
     else if ($('.seven').text().includes('X') &&
              $('.eight').text().includes('X') &&
              $('.nine').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.seven', '.eight', '.nine');
+               scoreBoard('.p1-score');
     }
     else if ($('.seven').text().includes('O') &&
              $('.eight').text().includes('O') &&
              $('.nine').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.seven', '.eight', '.nine');
+               scoreBoard('.p2-score');
     }
     else if ($('.one').text().includes('X') &&
              $('.four').text().includes('X') &&
              $('.seven').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.one', '.four', '.seven');
+               scoreBoard('.p1-score');
     }
     else if ($('.one').text().includes('O') &&
              $('.four').text().includes('O') &&
              $('.seven').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.one', '.four', '.seven');
+               scoreBoard('.p2-score');
     }
     else if ($('.two').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.eight').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.two', '.five', '.eight');
+               scoreBoard('.p1-score');
     }
     else if ($('.two').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.eight').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.two', '.five', '.eight');
+               scoreBoard('.p2-score');
     }
     else if ($('.three').text().includes('X') &&
              $('.six').text().includes('X') &&
              $('.nine').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.three', '.six', '.nine');
+               scoreBoard('.p1-score');
     }
     else if ($('.three').text().includes('O') &&
              $('.six').text().includes('O') &&
              $('.nine').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.three', '.six', '.nine');
+               scoreBoard('.p2-score');
     }
     else if ($('.one').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.nine').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.one', '.five', '.nine');
+               scoreBoard('.p1-score');
     }
     else if ($('.one').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.nine').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.one', '.five', '.nine');
+               scoreBoard('.p2-score');
     }
     else if ($('.three').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.seven').text().includes('X')) {
-             console.log(`${'Player 1'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.three', '.five', '.seven');
+               scoreBoard('.p1-score');
     }
     else if ($('.three').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.seven').text().includes('O')) {
-             console.log(`${'Player 2'} wins!`);
+               $('.wrapper').addClass('game-over');
+               winner('.three', '.five', '.seven');
+               scoreBoard('.p2-score');
     }
     else {
           draw();
@@ -133,19 +168,19 @@ const changeClass = function (cell) {
     }
  }
 
+const winner = function (a, b, c) {
+  $(a).addClass('winner');
+  $(b).addClass('winner');
+  $(c).addClass('winner');
+}
 
+//******************************** Score Board *******************************//
+// Get current score and increase by 1
 
-
-
-
-
-
-
-
-
-
-
-
-
+const scoreBoard = function (score) {
+  let currentScore = Number($(score).text());
+      currentScore ++;
+      currentScore += $(score).text(currentScore);
+  }
 
 //
