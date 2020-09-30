@@ -1,64 +1,41 @@
 console.log('is this on?');
 
 $('.one').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.two').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.three').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.four').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.five').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.six').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.seven').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.eight').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
 });
 
 $('.nine').on('click', function() {
-    $(this).text(players[0].label);
-    switchPlayer();
-    queryGame();
-    changeClass(this);
+    queryGame(this);
+});
+
+$('.new-game').on('click', function (){
+    newGame();
 });

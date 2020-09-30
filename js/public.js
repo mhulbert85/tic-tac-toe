@@ -3,26 +3,33 @@
 
 const player1 = {
   name: 'Player 1',
-  label: 'X',
+  icon: 'X',
+//  score: 0,
   img: ''
 }
 
 const player2 = {
   name: 'Player 2',
-  label: 'O',
+  icon: 'O',
+//  score: 0,
   img: ''
 }
 
 const players = [ player1 , player2 ];
 
 const switchPlayer = function () {
-  players.reverse();
+      players.reverse();
 }
 
 //******************************* Query Last Move ****************************//
-// Run query on the last move, if statement true the current player wins.
+// Change the class of the selected cell to disabled (pointer)
+// Run query on the last move, check conditions e.g. win, draw or continue .
+// After query switch players.
 
-const queryGame = function () {
+const queryGame = function (cell) {
+
+  changeClass(cell);
+
   if ($('.one').text().includes('X') &&
       $('.two').text().includes('X') &&
       $('.three').text().includes('X')) {
@@ -50,7 +57,6 @@ const queryGame = function () {
                $('.wrapper').addClass('game-over');
                winner('.four', '.five', '.six');
                scoreBoard('.p2-score');
-
     }
     else if ($('.seven').text().includes('X') &&
              $('.eight').text().includes('X') &&
@@ -139,18 +145,19 @@ const queryGame = function () {
     else {
           draw();
     }
+    switchPlayer();
   }
 
-//******************************* Tied Game **********************************//
+//******************************* Draw Game **********************************//
 // Every time a player takes their turn, 1 is added to the game total.
 // When the game total has a value of 9 the game is Tied
 
-let total = 1;
+let totalClicks = 1;
 
 const draw = function () {
-  const res = total++;
-  if (res === 9) {
-    alert('Its a draw!');
+  const clickCounter = totalClicks++;
+    if (clickCounter === 9) {
+        alert('Its a draw!');
   }
 }
 
@@ -159,28 +166,54 @@ const draw = function () {
 
 const changeClass = function (cell) {
 
+  $(cell).text(players[0].icon);// set current player icon
+
   if ($(cell).text().includes('X')) {
       $(cell).addClass('playerColor1');
-      $(cell).removeClass('playerColor2');
     } else if ($(cell).text().includes('O')){
-      $(cell).addClass('playerColor2');
-      $(cell).removeClass('playerColor1');
+               $(cell).addClass('playerColor2');
     }
  }
 
-const winner = function (a, b, c) {
-  $(a).addClass('winner');
-  $(b).addClass('winner');
-  $(c).addClass('winner');
+const winner = function (cell1, cell2, cell3) {
+  $(cell1).addClass('winner');
+  $(cell2).addClass('winner');
+  $(cell3).addClass('winner');
 }
 
-//******************************** Score Board *******************************//
+//******************************* Score Board ********************************//
 // Get current score and increase by 1
 
 const scoreBoard = function (score) {
   let currentScore = Number($(score).text());
       currentScore ++;
+      localStorage.setItem('saveScore', currentScore);
+      currentScore = localStorage.getItem('saveScore');
       currentScore += $(score).text(currentScore);
   }
+
+//********************************* New Game *********************************//
+// get children text elements, remove previous marks set appropriate classes
+// reset draw game click counter
+// winner starts the next game
+
+const newGame = function () {
+  $('.wrapper').children().removeClass('winner').empty();
+  $('.wrapper').children().removeClass('playerColor1');
+  $('.wrapper').children().removeClass('playerColor2');
+  $('.wrapper').removeClass('game-over');
+  totalClicks = 1;
+  switchPlayer();
+}
+
+
+
+
+
+
+
+
+
+
 
 //

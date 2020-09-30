@@ -163,6 +163,23 @@ p {
 .game-over {
   pointer-events: none;
 }
+.new-game {
+  width: 120px;
+  height: 40px;
+  background-color: #24DBA4;
+  border: none;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.new-game:hover {
+  background-color: #24aab1;
+  border: none;
+}
 .winner {
   background-color: #83e1ff;
+}
+
+.reset {
+  pointer-events: auto;
 }
