@@ -33,119 +33,103 @@ const queryGame = function (cell) {
   if ($('.one').text().includes('X') &&
       $('.two').text().includes('X') &&
       $('.three').text().includes('X')) {
-        $('.wrapper').addClass('game-over');
         winner('.one', '.two', '.three');
         scoreBoard('.p1-score');
     }
     else if ($('.one').text().includes('O') &&
              $('.two').text().includes('O') &&
              $('.three').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.one', '.two', '.three');
                scoreBoard('.p2-score');
     }
     else if ($('.four').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.six').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.four', '.five', '.six');
                scoreBoard('.p1-score');
     }
     else if ($('.four').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.six').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.four', '.five', '.six');
                scoreBoard('.p2-score');
     }
     else if ($('.seven').text().includes('X') &&
              $('.eight').text().includes('X') &&
              $('.nine').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.seven', '.eight', '.nine');
                scoreBoard('.p1-score');
     }
     else if ($('.seven').text().includes('O') &&
              $('.eight').text().includes('O') &&
              $('.nine').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.seven', '.eight', '.nine');
                scoreBoard('.p2-score');
     }
     else if ($('.one').text().includes('X') &&
              $('.four').text().includes('X') &&
              $('.seven').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.one', '.four', '.seven');
                scoreBoard('.p1-score');
     }
     else if ($('.one').text().includes('O') &&
              $('.four').text().includes('O') &&
              $('.seven').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.one', '.four', '.seven');
                scoreBoard('.p2-score');
     }
     else if ($('.two').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.eight').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.two', '.five', '.eight');
                scoreBoard('.p1-score');
     }
     else if ($('.two').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.eight').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.two', '.five', '.eight');
                scoreBoard('.p2-score');
     }
     else if ($('.three').text().includes('X') &&
              $('.six').text().includes('X') &&
              $('.nine').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.three', '.six', '.nine');
                scoreBoard('.p1-score');
     }
     else if ($('.three').text().includes('O') &&
              $('.six').text().includes('O') &&
              $('.nine').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.three', '.six', '.nine');
                scoreBoard('.p2-score');
     }
     else if ($('.one').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.nine').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.one', '.five', '.nine');
                scoreBoard('.p1-score');
     }
     else if ($('.one').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.nine').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.one', '.five', '.nine');
                scoreBoard('.p2-score');
     }
     else if ($('.three').text().includes('X') &&
              $('.five').text().includes('X') &&
              $('.seven').text().includes('X')) {
-               $('.wrapper').addClass('game-over');
                winner('.three', '.five', '.seven');
                scoreBoard('.p1-score');
     }
     else if ($('.three').text().includes('O') &&
              $('.five').text().includes('O') &&
              $('.seven').text().includes('O')) {
-               $('.wrapper').addClass('game-over');
                winner('.three', '.five', '.seven');
                scoreBoard('.p2-score');
     }
     else {
-          draw();
+          draw(); // check for draw
     }
-    switchPlayer();
+    switchPlayer(); // switch player after query completed
   }
 
 //******************************* Draw Game **********************************//
@@ -176,9 +160,18 @@ const changeClass = function (cell) {
  }
 
 const winner = function (cell1, cell2, cell3) {
+
   $(cell1).addClass('winner');
   $(cell2).addClass('winner');
   $(cell3).addClass('winner');
+  $('.wrapper').addClass('game-over');
+
+  if ($(cell1).text().includes('X')){
+      $('.modal').addClass('player-1-wins');
+    }
+  if ($(cell1).text().includes('O')){
+      $('.modal').addClass('player-2-wins');
+    }
 }
 
 //******************************* Score Board ********************************//
@@ -187,8 +180,8 @@ const winner = function (cell1, cell2, cell3) {
 const scoreBoard = function (score) {
   let currentScore = Number($(score).text());
       currentScore ++;
-      localStorage.setItem('saveScore', currentScore);
-      currentScore = localStorage.getItem('saveScore');
+      // localStorage.setItem('saveScore', currentScore);
+      // currentScore = localStorage.getItem('saveScore');
       currentScore += $(score).text(currentScore);
   }
 
@@ -202,6 +195,8 @@ const newGame = function () {
   $('.wrapper').children().removeClass('playerColor1');
   $('.wrapper').children().removeClass('playerColor2');
   $('.wrapper').removeClass('game-over');
+  $('.modal').removeClass('player-1-wins');
+  $('.modal').removeClass('player-2-wins');
   totalClicks = 1;
   switchPlayer();
 }

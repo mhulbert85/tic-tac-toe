@@ -5,6 +5,7 @@
   <script src="js/jquery.js" defer></script>
   <script src="js/app.js" defer></script>
   <script src="js/public.js" defer></script>
+  <script src="js/ultimate.js" defer></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Tic Tac Toe</title>
 
@@ -18,7 +19,7 @@
       <p class="rules">Welcome to Tic Tac Toe! The player that places three of  their marks in a horizontal, vertical, or diagonal row wins!</p>
     </header>
 
-    <!-- Grid -->
+    <!-- Game Grid: 3x3-->
     <div class="wrapper">
       <div class="one"></div>
       <div class="two"></div>
@@ -38,11 +39,21 @@
       <div class="p2-name">Player 2</div>
       <div class="p1-score">0</div>
       <div class="p2-score">0</div>
+
+      <!-- The Modal -->
+      <div class="modal">
+        <img src="./assets/images/win.png"></img>
+      </div>
+
     </div>
 
-    <!-- New Game -->
+    <!-- New 3x3 Game -->
     <button class="new-game">New Game</button>
 
-  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.21.1/firebase-app.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
 </body>
 </html>
