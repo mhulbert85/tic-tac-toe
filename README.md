@@ -1,9 +1,5 @@
 # Tic Tac Toe
 
-## Demo
-
-Play [demo](myURL)
-
 ## Tech Specs
 
 - Firebase
@@ -20,6 +16,6 @@ Play Tic Tac Toe with a friend on a seperate device.
 
 ## Future iterations & Ideas
 
-- Create user name, avatar
+- Create user input form e.g. name, avatar etc
 - Leaderboard to store all players by wins
-- Ultimate tic tac toe
+- Ultimate tic tac toe 9x9
