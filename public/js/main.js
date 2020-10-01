@@ -153,9 +153,9 @@ const changeClass = function (cell) {
   $(cell).text(players[0].icon);// set current player icon
 
   if ($(cell).text().includes('X')) {
-      $(cell).addClass('playerColor1');
+      $(cell).addClass('player-1');
     } else if ($(cell).text().includes('O')){
-               $(cell).addClass('playerColor2');
+               $(cell).addClass('player-2');
     }
  }
 
@@ -186,17 +186,14 @@ const scoreBoard = function (score) {
   }
 
 //********************************* New Game *********************************//
-// get children text elements, remove previous marks set appropriate classes
-// reset draw game click counter
-// winner starts the next game
+// Get children text elements, remove previous marks set appropriate classes
+// Reset draw game click counter
+// Winner starts the next game
 
 const newGame = function () {
-  $('.wrapper').children().removeClass('winner').empty();
-  $('.wrapper').children().removeClass('playerColor1');
-  $('.wrapper').children().removeClass('playerColor2');
+  $('.wrapper').children().removeClass("winner player-1 player-2" ).empty();
   $('.wrapper').removeClass('game-over');
-  $('.modal').removeClass('player-1-wins');
-  $('.modal').removeClass('player-2-wins');
+  $('.modal').removeClass("player-1-wins player-2-wins");
   totalClicks = 1;
   switchPlayer();
 }

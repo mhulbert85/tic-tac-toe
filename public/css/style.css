@@ -5,31 +5,26 @@
 body {
   background-color: #f2f2f2;
 }
-
 header {
   grid-row: 1;
   grid-column: 1 / span 3;
   font-size: 40px;
 }
-
 h1 {
   font-family: 'Secular One', sans-serif;
   margin: 0;
   padding: 0;
 }
-
 p {
   font-family: 'Lato', sans-serif;
   font-size: 30px;
   padding-bottom: 50px;
   margin: 0;
 }
-
 footer {
   background-color: rgba(36, 36, 36, .8);
   height: 300px;
 }
-
 .container {
   display: grid;
   grid-auto-columns: 45%, 10%, 45%;
@@ -38,7 +33,6 @@ footer {
   margin: 0 auto;
   padding: 50px;
 }
-
 .wrapper {
   display: inline-grid;
   grid-column: 1;
@@ -48,17 +42,6 @@ footer {
   width: 405px;
   margin: 0 auto;
 }
-
-.ultimate {
-  display: inline-grid;
-  grid-column: 1 / span 3;
-  grid-row: 3;
-  grid-auto-columns: 80px;
-  grid-auto-rows: 80px;
-  margin: 0;
-  padding-top: 100px;
-}
-
 .one, .two, .three,
 .four, .five, .six,
 .seven, .eight, .nine {
@@ -70,7 +53,6 @@ footer {
   line-height: 135px;
   text-align: center;
 }
-
 .one:hover, .two:hover, .three:hover,
 .four:hover, .five:hover, .six:hover,
 .seven:hover, .eight:hover, .nine:hover {
@@ -176,11 +158,11 @@ footer {
   margin: 0 auto;
   width: 100%;
 }
-.playerColor1 {
+.player-1 {
   color: #24DBA4;
   pointer-events: none;
 }
-.playerColor2 {
+.player-2 {
   color: #DB245B;
   pointer-events: none;
 }
@@ -197,16 +179,13 @@ footer {
   text-transform: uppercase;
   margin: 0 auto;
 }
-
 .new-game:hover {
   background-color: #24aab1;
   border: none;
 }
-
 .winner {
   background-color: #83e1ff;
 }
-
 .modal {
   display: none;
   margin: 0 auto;
