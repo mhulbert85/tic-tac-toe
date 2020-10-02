@@ -22,13 +22,13 @@ p {
   margin: 0;
 }
 footer {
-  background-color: rgba(36, 36, 36, .8);
-  height: 300px;
+  background-color: rgba(36, 36, 36, .4);
+  height: 150px;
 }
 .container {
   display: grid;
   grid-auto-columns: 45%, 10%, 45%;
-  grid-auto-rows: auto, 405px, 100px, auto;
+  grid-auto-rows: auto, 405px, auto;
   width: 960px;
   margin: 0 auto;
   padding: 50px;
@@ -169,7 +169,7 @@ footer {
 .game-over {
   pointer-events: none;
 }
-.new-game {
+.new-game-btn {
   width: 120px;
   height: 40px;
   background-color: #24DBA4;
@@ -179,12 +179,12 @@ footer {
   text-transform: uppercase;
   margin: 0 auto;
 }
-.new-game:hover {
+.new-game-btn:hover {
   background-color: #24aab1;
   border: none;
 }
 .winner {
-  background-color: #83e1ff;
+  background-color: rgb(131,225,255, .5 );
 }
 .modal {
   display: none;
@@ -206,4 +206,22 @@ footer {
   grid-row: 2;
   grid-column: 2;
   padding-top: 70px;
+}
+.contact {
+  color: white;
+  text-align: center;
+  font-family: 'Secular One', sans-serif;
+  font-size: 20px;
+  margin: 0 auto;
+  padding-top: 65px;
+}
+.contact a {
+  color: white;
+  text-decoration: none;
+}
+.contact:hover, a:hover {
+  color: lightblue;
+}
+.fa-github {
+  margin: 5px;
 }

@@ -1,28 +1,24 @@
-
-//***************************** Player Objects *******************************//
+console.log('main.js');
+//****************************** Player Objects ******************************//
 
 const player1 = {
-  name: 'Player 1',
-  icon: 'X',
+//  name: 'Player 1',
+    icon: 'X',
 //  score: 0,
-  img: ''
+//  img: ''
 }
 
 const player2 = {
-  name: 'Player 2',
-  icon: 'O',
+//  name: 'Player 2',
+    icon: 'O',
 //  score: 0,
-  img: ''
+//  img: ''
 }
 
 const players = [ player1 , player2 ];
 
-const switchPlayer = function () {
-      players.reverse();
-}
-
-//******************************* Query Last Move ****************************//
-// Change the class of the selected cell to disabled (pointer)
+//****************************** Query Last Move *****************************//
+// Change the class of the selected cell (disable pointer)
 // Run query on the last move, check conditions e.g. win, draw or continue .
 // After query switch players.
 
@@ -129,10 +125,10 @@ const queryGame = function (cell) {
     else {
           draw(); // check for draw
     }
-    switchPlayer(); // switch player after query completed
+    players.reverse(); // switch player after query completed
   }
 
-//******************************* Draw Game **********************************//
+//******************************** Draw Game *********************************//
 // Every time a player takes their turn, 1 is added to the game total.
 // When the game total has a value of 9 the game is Tied
 
@@ -180,13 +176,11 @@ const winner = function (cell1, cell2, cell3) {
 const scoreBoard = function (score) {
   let currentScore = Number($(score).text());
       currentScore ++;
-      // localStorage.setItem('saveScore', currentScore);
-      // currentScore = localStorage.getItem('saveScore');
       currentScore += $(score).text(currentScore);
   }
 
 //********************************* New Game *********************************//
-// Get children text elements, remove previous marks set appropriate classes
+// Remove classes and empty wrapper
 // Reset draw game click counter
 // Winner starts the next game
 
@@ -195,17 +189,7 @@ const newGame = function () {
   $('.wrapper').removeClass('game-over');
   $('.modal').removeClass("player-1-wins player-2-wins");
   totalClicks = 1;
-  switchPlayer();
+  players.reverse();
 }
 
-
-
-
-
-
-
-
-
-
-
-//
+//*********************************** END ************************************//

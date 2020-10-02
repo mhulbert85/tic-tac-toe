@@ -2,13 +2,12 @@
 
 ## Tech Specs
 
-- Firebase
 - jQuery
 - HTML, CSS, JavaScript
 
 ## Project Description
 
-Play Tic Tac Toe with a friend on a seperate device.
+Play Tic Tac Toe with a friend.
 
 ## Bugs
 

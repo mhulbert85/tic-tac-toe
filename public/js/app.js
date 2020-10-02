@@ -1,9 +1,9 @@
-console.log('is this on?');
+console.log('app.js');
 
 $(".wrapper").click(function(event) {
   queryGame(event.target);
 });
 
-$('.new-game').on('click', function (){
+$('.new-game-btn').on('click', function (){
     newGame();
 });
