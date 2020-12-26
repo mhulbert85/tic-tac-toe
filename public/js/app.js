@@ -1,5 +1,3 @@
-console.log('app.js');
-
 $('.one').on('click', function() {
     queryGame(this);
 });

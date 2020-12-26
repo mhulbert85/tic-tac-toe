@@ -2,37 +2,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #f2f2f2;
 }
+
 header {
   grid-row: 1;
   grid-column: 1 / span 3;
   font-size: 40px;
+  text-align: center;
+  margin: 0 50px;
 }
+
 h1 {
   font-family: 'Secular One', sans-serif;
-  margin: 0;
-  padding: 0;
 }
+
 p {
   font-family: 'Lato', sans-serif;
   font-size: 30px;
   padding-bottom: 50px;
-  margin: 0;
 }
+
 footer {
   background-color: rgba(36, 36, 36, .4);
   height: 150px;
 }
+
 .container {
   display: grid;
   grid-auto-columns: 45%, 10%, 45%;
   grid-auto-rows: auto, 405px, auto;
-  width: 960px;
-  margin: 0 auto;
-  padding: 50px;
+  align-items: center;
+  justify-content: center;
 }
+
 .wrapper {
   display: inline-grid;
   grid-column: 1;
@@ -42,6 +52,7 @@ footer {
   width: 405px;
   margin: 0 auto;
 }
+
 .one, .two, .three,
 .four, .five, .six,
 .seven, .eight, .nine {
@@ -53,47 +64,23 @@ footer {
   line-height: 135px;
   text-align: center;
 }
+
 .one:hover, .two:hover, .three:hover,
 .four:hover, .five:hover, .six:hover,
 .seven:hover, .eight:hover, .nine:hover {
   background-color: aliceblue;
 }
-.one {
-  grid-column: 1;
-  grid-row: 1;
-}
-.two {
-  grid-column: 2;
-  grid-row: 1;
-}
-.three {
-  grid-column: 3;
-  grid-row: 1;
-}
-.four {
-  grid-column: 1;
-  grid-row: 2;
-}
-.five {
-  grid-column: 2;
-  grid-row: 2;
-}
-.six {
-  grid-column: 3;
-  grid-row: 2;
-}
-.seven {
-  grid-column: 1;
-  grid-row: 3;
-}
-.eight {
-  grid-column: 2;
-  grid-row: 3;
-}
-.nine {
-  grid-column: 3;
-  grid-row: 3;
-}
+
+.one { grid-column: 1; grid-row: 1; }
+.two { grid-column: 2; grid-row: 1; }
+.three { grid-column: 3; grid-row: 1; }
+.four { grid-column: 1; grid-row: 2; }
+.five { grid-column: 2; grid-row: 2;}
+.six { grid-column: 3; grid-row: 2; }
+.seven { grid-column: 1; grid-row: 3;}
+.eight { grid-column: 2; grid-row: 3; }
+.nine { grid-column: 3; grid-row: 3; }
+
 .score {
   display: inline-grid;
   grid-column: 3;
@@ -103,9 +90,10 @@ footer {
   width: 405px;
   margin: 0 auto;
 }
+
 .score-title {
   background-color: #42b4f5;
-  grid-row:  1;
+  grid-row: 1;
   grid-column: 1 / span 2;
   font-family: 'Bangers', cursive;
   font-size: 45px;
@@ -114,9 +102,10 @@ footer {
   text-align: center;
   text-transform: uppercase;
 }
-.p1-name  {
+
+.p1-name {
   background-color: white;
-  grid-row:  2;
+  grid-row: 2;
   grid-column: 1;
   font-family: 'Bangers', cursive;
   font-size: 30px;
@@ -125,9 +114,10 @@ footer {
   margin: 0 auto;
   width: 100%;
 }
+
 .p2-name {
   background-color: white;
-  grid-row:  2;
+  grid-row: 2;
   grid-column: 2;
   font-family: 'Bangers', cursive;
   font-size: 30px;
@@ -136,9 +126,10 @@ footer {
   margin: 0 auto;
   width: 100%;
 }
+
 .p1-score {
   background-color: white;
-  grid-row:  3;
+  grid-row: 3;
   grid-column: 1;
   font-family: 'Secular One', sans-serif;
   font-size: 100px;
@@ -147,9 +138,10 @@ footer {
   margin: 0 auto;
   width: 100%;
 }
+
 .p2-score {
   background-color: white;
-  grid-row:  3;
+  grid-row: 3;
   grid-column: 2;
   font-family: 'Secular One', sans-serif;
   font-size: 100px;
@@ -158,70 +150,85 @@ footer {
   margin: 0 auto;
   width: 100%;
 }
+
 .player-1 {
   color: #24DBA4;
   pointer-events: none;
 }
+
 .player-2 {
   color: #DB245B;
   pointer-events: none;
 }
+
 .game-over {
   pointer-events: none;
 }
+
 .new-game-btn {
-  width: 120px;
   height: 40px;
   background-color: #24DBA4;
   border: none;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
-  margin: 0 auto;
 }
+
 .new-game-btn:hover {
   background-color: #24aab1;
   border: none;
 }
+
 .winner {
-  background-color: rgb(131,225,255, .5 );
+  background-color: rgb(131, 225, 255, .5);
 }
+
 .modal {
   display: none;
   margin: 0 auto;
   z-index: 1;
 }
+
 .modal img {
   width: 100px;
   margin: 0 auto;
 }
+
 .player-1-wins {
   display: grid;
   grid-row: 2;
   grid-column: 1;
   padding-top: 70px;
 }
+
 .player-2-wins {
   display: grid;
   grid-row: 2;
   grid-column: 2;
   padding-top: 70px;
 }
+
 .contact {
+  grid-column: 1 / span 3;
   color: white;
   text-align: center;
   font-family: 'Secular One', sans-serif;
   font-size: 20px;
-  margin: 0 auto;
-  padding-top: 65px;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .contact a {
   color: white;
   text-decoration: none;
 }
+
 .contact:hover, a:hover {
   color: lightblue;
 }
+
 .fa-github {
   margin: 5px;
 }

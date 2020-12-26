@@ -1,132 +1,55 @@
-console.log('main.js');
 //****************************** Player Objects ******************************//
 
 const player1 = {
-//  name: 'Player 1',
-    icon: 'X',
-//  score: 0,
-//  img: ''
+  icon: 'X',
 }
 
 const player2 = {
-//  name: 'Player 2',
-    icon: 'O',
-//  score: 0,
-//  img: ''
+  icon: 'O',
 }
 
-const players = [ player1 , player2 ];
+const players = [player1, player2];
 
 //****************************** Query Last Move *****************************//
 // Change the class of the selected cell (disable pointer)
 // Run query on the last move, check conditions e.g. win, draw or continue .
 // After query switch players.
 
-const queryGame = function (cell) {
+const queryGame = function (input) {
 
-  changeClass(cell);
+  changeClass(input);
+  // All winning combinations
+  const combo = [ 
+    [$('.one'), $('.two'), $('.three')],
+    [$('.four'), $('.five'), $('.six')],
+    [$('.seven'), $('.eight'), $('.nine')],
+    [$('.one'), $('.four'), $('.seven')],
+    [$('.two'), $('.five'), $('.eight')],
+    [$('.three'), $('.six'), $('.nine')],
+    [$('.one'), $('.five'), $('.nine')],
+    [$('.three'), $('.five'), $('.seven')]
+  ];
 
-  if ($('.one').text().includes('X') &&
-      $('.two').text().includes('X') &&
-      $('.three').text().includes('X')) {
-        winner('.one', '.two', '.three');
-        scoreBoard('.p1-score');
-    }
-    else if ($('.one').text().includes('O') &&
-             $('.two').text().includes('O') &&
-             $('.three').text().includes('O')) {
-               winner('.one', '.two', '.three');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.four').text().includes('X') &&
-             $('.five').text().includes('X') &&
-             $('.six').text().includes('X')) {
-               winner('.four', '.five', '.six');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.four').text().includes('O') &&
-             $('.five').text().includes('O') &&
-             $('.six').text().includes('O')) {
-               winner('.four', '.five', '.six');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.seven').text().includes('X') &&
-             $('.eight').text().includes('X') &&
-             $('.nine').text().includes('X')) {
-               winner('.seven', '.eight', '.nine');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.seven').text().includes('O') &&
-             $('.eight').text().includes('O') &&
-             $('.nine').text().includes('O')) {
-               winner('.seven', '.eight', '.nine');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.one').text().includes('X') &&
-             $('.four').text().includes('X') &&
-             $('.seven').text().includes('X')) {
-               winner('.one', '.four', '.seven');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.one').text().includes('O') &&
-             $('.four').text().includes('O') &&
-             $('.seven').text().includes('O')) {
-               winner('.one', '.four', '.seven');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.two').text().includes('X') &&
-             $('.five').text().includes('X') &&
-             $('.eight').text().includes('X')) {
-               winner('.two', '.five', '.eight');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.two').text().includes('O') &&
-             $('.five').text().includes('O') &&
-             $('.eight').text().includes('O')) {
-               winner('.two', '.five', '.eight');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.three').text().includes('X') &&
-             $('.six').text().includes('X') &&
-             $('.nine').text().includes('X')) {
-               winner('.three', '.six', '.nine');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.three').text().includes('O') &&
-             $('.six').text().includes('O') &&
-             $('.nine').text().includes('O')) {
-               winner('.three', '.six', '.nine');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.one').text().includes('X') &&
-             $('.five').text().includes('X') &&
-             $('.nine').text().includes('X')) {
-               winner('.one', '.five', '.nine');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.one').text().includes('O') &&
-             $('.five').text().includes('O') &&
-             $('.nine').text().includes('O')) {
-               winner('.one', '.five', '.nine');
-               scoreBoard('.p2-score');
-    }
-    else if ($('.three').text().includes('X') &&
-             $('.five').text().includes('X') &&
-             $('.seven').text().includes('X')) {
-               winner('.three', '.five', '.seven');
-               scoreBoard('.p1-score');
-    }
-    else if ($('.three').text().includes('O') &&
-             $('.five').text().includes('O') &&
-             $('.seven').text().includes('O')) {
-               winner('.three', '.five', '.seven');
-               scoreBoard('.p2-score');
-    }
-    else {
-          draw(); // check for draw
-    }
-    players.reverse(); // switch player after query completed
-  }
+  // Loop through cells and check combinations   
+  for (let i = 0; i < combo.length; i++) { 
+
+    let cell = combo[i];
+    
+    if (cell[0].text().includes('X') &&
+        cell[1].text().includes('X') &&
+        cell[2].text().includes('X')) {
+          winner(cell[0], cell[1], cell[2]);
+          scoreBoard('.p1-score');
+    } else if (cell[0].text().includes('O') &&
+               cell[1].text().includes('O') &&
+               cell[2].text().includes('O')) {
+                winner(cell[0], cell[1], cell[2]);
+                scoreBoard('.p2-score');
+    } 
+  }   
+  draw(); // check for draw
+  players.reverse(); // switch player after query completed
+}
 
 //******************************** Draw Game *********************************//
 // Every time a player takes their turn, 1 is added to the game total.
@@ -136,8 +59,8 @@ let totalClicks = 1;
 
 const draw = function () {
   const clickCounter = totalClicks++;
-    if (clickCounter === 9) {
-        alert('Its a draw!');
+  if (clickCounter === 9) {
+    alert('Its a draw!');
   }
 }
 
@@ -146,14 +69,14 @@ const draw = function () {
 
 const changeClass = function (cell) {
 
-  $(cell).text(players[0].icon);// set current player icon
+  $(cell).text(players[0].icon); // set current player icon
 
   if ($(cell).text().includes('X')) {
-      $(cell).addClass('player-1');
-    } else if ($(cell).text().includes('O')){
-               $(cell).addClass('player-2');
-    }
- }
+    $(cell).addClass('player-1');
+  } else if ($(cell).text().includes('O')) {
+    $(cell).addClass('player-2');
+  }
+}
 
 const winner = function (cell1, cell2, cell3) {
 
@@ -162,12 +85,12 @@ const winner = function (cell1, cell2, cell3) {
   $(cell3).addClass('winner');
   $('.wrapper').addClass('game-over');
 
-  if ($(cell1).text().includes('X')){
-      $('.modal').addClass('player-1-wins');
-    }
-  if ($(cell1).text().includes('O')){
-      $('.modal').addClass('player-2-wins');
-    }
+  if ($(cell1).text().includes('X')) {
+    $('.modal').addClass('player-1-wins');
+  }
+  if ($(cell1).text().includes('O')) {
+    $('.modal').addClass('player-2-wins');
+  }
 }
 
 //******************************* Score Board ********************************//
@@ -175,9 +98,9 @@ const winner = function (cell1, cell2, cell3) {
 
 const scoreBoard = function (score) {
   let currentScore = Number($(score).text());
-      currentScore ++;
-      currentScore += $(score).text(currentScore);
-  }
+  currentScore++;
+  currentScore += $(score).text(currentScore);
+}
 
 //********************************* New Game *********************************//
 // Remove classes and empty wrapper
@@ -185,7 +108,7 @@ const scoreBoard = function (score) {
 // Winner starts the next game
 
 const newGame = function () {
-  $('.wrapper').children().removeClass("winner player-1 player-2" ).empty();
+  $('.wrapper').children().removeClass("winner player-1 player-2").empty();
   $('.wrapper').removeClass('game-over');
   $('.modal').removeClass("player-1-wins player-2-wins");
   totalClicks = 1;
