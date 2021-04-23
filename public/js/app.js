@@ -34,6 +34,6 @@ $('.nine').on('click', function() {
     queryGame(this);
 });
 
-$('.new-game-btn').on('click', function (){
+$('.btn-reset').on('click', function (){
     newGame();
 });

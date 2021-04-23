@@ -1,13 +1,21 @@
 # Tic Tac Toe
 
+## Overview 
+
+Design and create a simple game of Tic Tac Toe to demonstrate basic understanding of HTML, CSS and Javascript.
+
 ## Play
 
-[Play demo](https://mhulbert85.github.io/TicTacToe/)
+Check out the live demo [here](https://mhulbert85.github.io/TicTacToe/)
 
-## Tech Specs
+## Languages , Frameworks , Librarys, Packages etc
 
+- HTML
+- CSS / SCSS
+- Javascript
 - jQuery
-- HTML, CSS, JavaScript
+- Fontawesome
+- Bootstrap 5
 
 ## Project Description
 
@@ -15,11 +23,11 @@ Play Tic Tac Toe with a friend.
 
 ## Bugs
 
-- Ongoing, still in development
+- N/A
 
 ## Future iterations & Ideas
 
 - Create user input form e.g. name, avatar etc
-- External db (Firebase)
-- Leaderboard to store all players by wins
-- Ultimate tic tac toe 9x9
+- Connect to database and store player info 
+- Leaderboard of all previous players
+- Ultimate tic tac toe 9 games in one board

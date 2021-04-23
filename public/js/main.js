@@ -1,14 +1,16 @@
 //****************************** Player Objects ******************************//
 
-const player1 = {
+const playerOne = {
   icon: 'X',
+  color: "#24DBA4",
 }
 
-const player2 = {
+const playerTwo = {
   icon: 'O',
+  color: "#DB245B",
 }
 
-const players = [player1, player2];
+const players = [playerOne, playerTwo];
 
 //****************************** Query Last Move *****************************//
 // Change the class of the selected cell (disable pointer)
@@ -18,8 +20,9 @@ const players = [player1, player2];
 const queryGame = function (input) {
 
   changeClass(input);
+
   // All winning combinations
-  const combo = [ 
+  const combo = [
     [$('.one'), $('.two'), $('.three')],
     [$('.four'), $('.five'), $('.six')],
     [$('.seven'), $('.eight'), $('.nine')],
@@ -31,36 +34,42 @@ const queryGame = function (input) {
   ];
 
   // Loop through cells and check combinations   
-  for (let i = 0; i < combo.length; i++) { 
+  for (let i = 0; i < combo.length; i++) {
 
     let cell = combo[i];
-    
+
     if (cell[0].text().includes('X') &&
         cell[1].text().includes('X') &&
         cell[2].text().includes('X')) {
           winner(cell[0], cell[1], cell[2]);
-          scoreBoard('.p1-score');
-    } else if (cell[0].text().includes('O') &&
-               cell[1].text().includes('O') &&
-               cell[2].text().includes('O')) {
-                winner(cell[0], cell[1], cell[2]);
-                scoreBoard('.p2-score');
-    } 
-  }   
-  draw(); // check for draw
+          scoreBoard('.player-1-score');
+          players.reverse();
+          return;
+        } else if (cell[0].text().includes('O') &&
+                   cell[1].text().includes('O') &&
+                   cell[2].text().includes('O')) {
+                   winner(cell[0], cell[1], cell[2]);
+                   scoreBoard('.player-2-score');
+                   players.reverse();
+                   return;
+                  }
+  }
+  draw(); //check for tied game  
   players.reverse(); // switch player after query completed
 }
 
 //******************************** Draw Game *********************************//
-// Every time a player takes their turn, 1 is added to the game total.
-// When the game total has a value of 9 the game is Tied
+// Every time a player takes their turn, 1 is added to totalClicks.
+// When totalClicks has a value of 9 the game is Tied
 
 let totalClicks = 1;
 
 const draw = function () {
   const clickCounter = totalClicks++;
-  if (clickCounter === 9) {
-    alert('Its a draw!');
+  if ($('.game-one').hasClass('game-over')) {
+    alert('winner!');
+  } else if (clickCounter === 9 && $('.game-one').hasClass('check-for-draw')) {
+    alert('its a draw');
   }
 }
 
@@ -72,24 +81,24 @@ const changeClass = function (cell) {
   $(cell).text(players[0].icon); // set current player icon
 
   if ($(cell).text().includes('X')) {
-    $(cell).addClass('player-1');
-  } else if ($(cell).text().includes('O')) {
-    $(cell).addClass('player-2');
-  }
+      $(cell).css({"color": playerOne.color}).addClass('player-1');
+    } else if ($(cell).text().includes('O')) {
+               $(cell).css({"color": playerTwo.color}).addClass('player-2');
+              }
 }
 
 const winner = function (cell1, cell2, cell3) {
 
-  $(cell1).addClass('winner');
-  $(cell2).addClass('winner');
-  $(cell3).addClass('winner');
-  $('.wrapper').addClass('game-over');
+  $(cell1).css({"background-color":"#42b3f5"});
+  $(cell2).css({"background-color":"#42b3f5"});
+  $(cell3).css({"background-color":"#42b3f5"});
+  $('.game-one').removeClass('check-for-draw').addClass('game-over');
 
   if ($(cell1).text().includes('X')) {
-    $('.modal').addClass('player-1-wins');
+      $('.player-1-wins').css({"display": "flex"});
   }
   if ($(cell1).text().includes('O')) {
-    $('.modal').addClass('player-2-wins');
+      $('.player-2-wins').css({"display": "flex"});
   }
 }
 
@@ -98,19 +107,20 @@ const winner = function (cell1, cell2, cell3) {
 
 const scoreBoard = function (score) {
   let currentScore = Number($(score).text());
-  currentScore++;
-  currentScore += $(score).text(currentScore);
+      currentScore++;
+      currentScore += $(score).text(currentScore);
 }
 
 //********************************* New Game *********************************//
-// Remove classes and empty wrapper
+// Remove classes and empty game-one
 // Reset draw game click counter
 // Winner starts the next game
 
 const newGame = function () {
-  $('.wrapper').children().removeClass("winner player-1 player-2").empty();
-  $('.wrapper').removeClass('game-over');
-  $('.modal').removeClass("player-1-wins player-2-wins");
+  $('.game-one').addClass('check-for-draw').children().removeClass("player-1 player-2").empty();
+  $('.game-one').removeClass('game-over').children().css({"background-color":"white"});
+  $('.player-1-wins').css({"display":"none"});
+  $('.player-2-wins').css({"display":"none"});
   totalClicks = 1;
   players.reverse();
 }

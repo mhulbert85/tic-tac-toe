@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -13,222 +13,201 @@ body {
 }
 
 header {
-  grid-row: 1;
-  grid-column: 1 / span 3;
-  font-size: 40px;
+  width: 100%;
   text-align: center;
-  margin: 0 50px;
+  padding: 1rem;
 }
 
-h1 {
-  font-family: 'Secular One', sans-serif;
+header h1 {
+  font-family: "Secular One", sans-serif;
+  font-size: 85px;
+  margin: 0;
 }
 
-p {
+header p {
   font-family: 'Lato', sans-serif;
   font-size: 30px;
-  padding-bottom: 50px;
+  padding: 1rem 3rem;
+  margin: 0;
 }
 
-footer {
-  background-color: rgba(36, 36, 36, .4);
-  height: 150px;
-}
-
-.container {
+.game-one {
+  display: -ms-grid;
   display: grid;
-  grid-auto-columns: 45%, 10%, 45%;
-  grid-auto-rows: auto, 405px, auto;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper {
-  display: inline-grid;
-  grid-column: 1;
-  grid-row: 2;
   grid-auto-columns: 135px;
   grid-auto-rows: 135px;
-  width: 405px;
   margin: 0 auto;
+  width: 405px;
 }
 
-.one, .two, .three,
-.four, .five, .six,
-.seven, .eight, .nine {
-  background-color: white;
+.game-one .one, .game-one .two, .game-one .three,
+.game-one .four, .game-one .five, .game-one .six,
+.game-one .seven, .game-one .eight, .game-one .nine {
+  background-color: #fff;
   border: 2px solid aliceblue;
   border-radius: 5px;
-  font-family: 'Bangers', cursive;
+  font-family: "Bangers", cursive;
   font-size: 100px;
   line-height: 135px;
   text-align: center;
 }
 
-.one:hover, .two:hover, .three:hover,
-.four:hover, .five:hover, .six:hover,
-.seven:hover, .eight:hover, .nine:hover {
+.game-one .one:hover, .game-one .two:hover, .game-one .three:hover,
+.game-one .four:hover, .game-one .five:hover, .game-one .six:hover,
+.game-one .seven:hover, .game-one .eight:hover, .game-one .nine:hover {
   background-color: aliceblue;
 }
 
-.one { grid-column: 1; grid-row: 1; }
-.two { grid-column: 2; grid-row: 1; }
-.three { grid-column: 3; grid-row: 1; }
-.four { grid-column: 1; grid-row: 2; }
-.five { grid-column: 2; grid-row: 2;}
-.six { grid-column: 3; grid-row: 2; }
-.seven { grid-column: 1; grid-row: 3;}
-.eight { grid-column: 2; grid-row: 3; }
-.nine { grid-column: 3; grid-row: 3; }
-
-.score {
-  display: inline-grid;
-  grid-column: 3;
-  grid-row: 2;
-  grid-auto-columns: 1fr, 1fr;
-  grid-auto-rows: 135px;
-  width: 405px;
-  margin: 0 auto;
+.game-one .one, .game-one .two, .game-one .three {
+  -ms-grid-row: 1;
+  grid-row: 1;
 }
 
-.score-title {
-  background-color: #42b4f5;
-  grid-row: 1;
-  grid-column: 1 / span 2;
-  font-family: 'Bangers', cursive;
+.game-one .four, .game-one .five, .game-one .six {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+.game-one .seven, .game-one .eight, .game-one .nine {
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+.game-one .one, .game-one .four, .game-one .seven {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.game-one .two, .game-one .five, .game-one .eight {
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.game-one .three, .game-one .six, .game-one .nine {
+  -ms-grid-column: 3;
+  grid-column: 3;
+}
+
+.btn-reset {
+  color: #fff;
+  background-color: #24DBA4;
+  border: #24DBA4;
+  font-weight: bold;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+.btn-reset:hover {
+  background-color: #24aab1;
+}
+
+.score-board {
+  width: 405px;
+  height: 405px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.score-board h4 {
+  background-color: #42B4f5;
+  font-family: "Bangers", cursive;
   font-size: 45px;
   font-weight: bold;
-  line-height: 135px;
+  padding: 1rem;
+  margin: 0;
   text-align: center;
   text-transform: uppercase;
 }
 
-.p1-name {
-  background-color: white;
-  grid-row: 2;
-  grid-column: 1;
-  font-family: 'Bangers', cursive;
+.score-board p {
+  font-family: "Bangers", cursive;
   font-size: 30px;
-  line-height: 135px;
+  margin-bottom: 0;
+  padding: 1rem;
   text-align: center;
-  margin: 0 auto;
-  width: 100%;
 }
 
-.p2-name {
-  background-color: white;
-  grid-row: 2;
-  grid-column: 2;
-  font-family: 'Bangers', cursive;
-  font-size: 30px;
-  line-height: 135px;
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.p1-score {
-  background-color: white;
-  grid-row: 3;
-  grid-column: 1;
-  font-family: 'Secular One', sans-serif;
-  font-size: 100px;
-  line-height: 130px;
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.p2-score {
-  background-color: white;
-  grid-row: 3;
-  grid-column: 2;
-  font-family: 'Secular One', sans-serif;
-  font-size: 100px;
-  line-height: 130px;
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.player-1 {
-  color: #24DBA4;
-  pointer-events: none;
-}
-
-.player-2 {
-  color: #DB245B;
-  pointer-events: none;
-}
-
-.game-over {
-  pointer-events: none;
-}
-
-.new-game-btn {
-  height: 40px;
-  background-color: #24DBA4;
-  border: none;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.new-game-btn:hover {
-  background-color: #24aab1;
-  border: none;
-}
-
-.winner {
-  background-color: rgb(131, 225, 255, .5);
-}
-
-.modal {
+.score-board img {
   display: none;
   margin: 0 auto;
-  z-index: 1;
+  width: 94px;
 }
 
-.modal img {
-  width: 100px;
-  margin: 0 auto;
-}
-
-.player-1-wins {
-  display: grid;
-  grid-row: 2;
-  grid-column: 1;
-  padding-top: 70px;
-}
-
-.player-2-wins {
-  display: grid;
-  grid-row: 2;
-  grid-column: 2;
-  padding-top: 70px;
-}
-
-.contact {
-  grid-column: 1 / span 3;
-  color: white;
+.score-board .player-1-score, .score-board .player-2-score {
+  font-family: "Secular One", sans-serif;
+  font-size: 100px;
   text-align: center;
-  font-family: 'Secular One', sans-serif;
-  font-size: 20px;
-  margin-top: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.contact a {
-  color: white;
+.player-1, .player-2, .game-over {
+  pointer-events: none;
+}
+
+footer {
+  background-color: #24242466;
+  bottom: 0px;
+  color: #fff;
+  font-family: "Secular One", sans-serif;
+  font-size: 20px;
+  padding: 1rem 0;
+  position: relative;
+  margin-top: 60px;
+  text-align: center;
+  width: 100%;
+}
+
+footer a {
+  color: #fff;
   text-decoration: none;
 }
 
-.contact:hover, a:hover {
+footer:hover, footer a:hover {
   color: lightblue;
 }
 
-.fa-github {
+footer i {
   margin: 5px;
 }
+
+@media (max-width: 992px) {
+  header {
+    padding: 80px;
+  }
+  .game-one {
+    grid-auto-columns: 250px;
+    grid-auto-rows: 250px;
+    width: 750px;
+  }
+  .game-one .one, .game-one .two, .game-one .three,
+  .game-one .four, .game-one .five, .game-one .six,
+  .game-one .seven, .game-one .eight, .game-one .nine {
+    font-size: 250px;
+    line-height: 250px;
+  }
+  .score-board {
+    width: 750px;
+    min-height: 750px;
+  }
+  .score-board h4 {
+    font-size: 100px;
+  }
+  .score-board p {
+    font-size: 80px;
+  }
+  .score-board img {
+    width: 150px;
+  }
+  .score-board .player-1-score, .score-board .player-2-score {
+    font-size: 150px;
+    text-align: center;
+  }
+  .btn-reset {
+    width: 750px;
+    font-size: 60px;
+    margin: 60px auto;
+  }
+  footer {
+    font-size: 35px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

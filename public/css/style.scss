@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+$primary: #42B4f5;
+$secondary: #f2f2f2;
+$teal: #24DBA4;
+$white: #fff;
+$dark: #24242466;
+$font_one: 'Secular One', sans-serif;
+$font_two: 'Bangers', cursive;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $secondary;
+}
+
+// Header CSS
+header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+
+  h1 {
+    font-family: $font_one;
+    font-size: 85px;
+    margin: 0;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    padding: 1rem 3rem;
+    margin: 0;
+  }
+
+}
+// 3x3 CSS
+.game-one {
+  display: grid;
+  grid-auto-columns: 135px;
+  grid-auto-rows: 135px;
+  margin: 0 auto;
+  width: 405px;
+
+  
+  .one, .two, .three,
+  .four, .five, .six,
+  .seven, .eight, .nine {
+    background-color: $white;
+    border: 2px solid aliceblue;
+    border-radius: 5px;
+    font-family: $font_two;
+    font-size: 100px;
+    line-height: 135px;
+    text-align: center;
+  }
+  
+  .one:hover, .two:hover, .three:hover,
+  .four:hover, .five:hover, .six:hover,
+  .seven:hover, .eight:hover, .nine:hover {
+    background-color: aliceblue;
+  }
+  
+  .one , .two, .three {
+    grid-row: 1;
+  }
+  
+  .four, .five, .six {
+    grid-row: 2;
+  }
+  
+  .seven, .eight, .nine {
+    grid-row: 3;
+  }
+  
+  .one, .four, .seven {
+    grid-column: 1;
+  }
+  
+  .two, .five, .eight {
+    grid-column: 2;
+  }
+  
+  .three, .six, .nine {
+    grid-column: 3;
+  }
+
+}
+// Reset Board CSS
+.btn-reset {
+  color: $white;
+  background-color: $teal;
+  border: $teal;
+  font-weight: bold;
+  padding: 1rem;
+  text-transform: uppercase;
+  &:hover {
+    background-color: #24aab1;
+  }
+}
+
+// Scoreboard CSS
+.score-board {
+  width: 405px;
+  height: 405px;
+  margin: 0 auto;
+  background-color: $white;
+
+  h4 {
+    background-color: $primary;
+    font-family: $font_two;
+    font-size: 45px;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-family: $font_two;
+    font-size: 30px;
+    margin-bottom: 0;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  img {
+    display: none;
+    margin: 0 auto;
+    width: 94px;
+  }
+
+  .player-1-score, .player-2-score {
+    font-family: $font_one;
+    font-size: 100px;
+    text-align: center;
+  }
+  
+}
+
+// CSS for javascript functions
+.player-1, .player-2, .game-over {
+  pointer-events: none;
+}
+
+// Footer CSS
+footer {
+  background-color: $dark;
+  bottom: 0px;
+  color: $white;
+  font-family: $font_one;
+  font-size: 20px;
+  padding: 1rem 0;
+  position: relative;
+  margin-top: 60px;
+  text-align: center;
+  width: 100%;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &:hover, a:hover {
+    color: lightblue;
+  }
+
+  i {
+    margin: 5px;
+  }
+
+}
+
+@media (max-width: 992px) {
+
+  header {
+    padding: 80px;
+  }
+
+  .game-one {
+    grid-auto-columns: 250px;
+    grid-auto-rows: 250px;
+    width: 750px;
+    
+    .one, .two, .three,
+    .four, .five, .six,
+    .seven, .eight, .nine {
+      font-size: 250px;
+      line-height: 250px;
+    }
+
+  }
+  
+  .score-board {
+    width: 750px;
+    min-height: 750px;
+
+    h4 {
+      font-size: 100px;
+    }
+
+    p {
+      font-size: 80px;
+    }
+  
+    img {
+      width: 150px;
+    }
+  
+    .player-1-score, .player-2-score {
+      font-size: 150px;
+      text-align: center;
+    }
+
+  }
+
+  .btn-reset {
+    width: 750px;
+    font-size: 60px;
+    margin: 60px auto;
+  }
+
+  footer {
+    font-size: 35px;
+  }
+
+}
