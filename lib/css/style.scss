@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+$primary: #42B4f5;
+$secondary: #f2f2f2;
+$white: #fff;
+$dark: #24242466;
+$font-one: 'Secular One',sans-serif;
+$font-two: 'Bangers',cursive;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $secondary;
+}
+
+// Header CSS
+header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+
+  h1 {
+    font-family: $font_one;
+    font-size: 85px;
+    margin: 0;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    padding: 1rem 3rem;
+    margin: 0;
+  }
+
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.square {
+  flex-basis: calc(33.333% - 10px);
+}
+
+.grid-inner {
+  flex-basis: calc(100% - 30px);
+
+  .content {
+    align-items: flex-start !important;
+  }
+}
+
+.square, .grid-inner {
+  position: relative;
+  border: 1px solid;
+
+  &:before {
+    display: block;
+    content: "";
+    padding-top: 100%;
+  }
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vw;
+  }
+}
+
+
+// // 3x3 CSS
+.one, .two, .three,
+.four, .five, .six,
+.seven, .eight, .nine {
+  background-color: $white;
+  border: 2px solid aliceblue;
+  font-family: $font-two;
+  width: 33.33%;
+  height: 33.33%;
+}
+
+.one:hover, .two:hover, .three:hover,
+.four:hover, .five:hover, .six:hover,
+.seven:hover, .eight:hover, .nine:hover {
+  background-color: aliceblue;
+}
+
+
+// Reset Board CSS
+.btn-primary {
+  color: $primary;
+  background-color: $white;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 1rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $primary;
+    border: 2px solid $primary;
+  }
+}
+
+// Scoreboard CSS
+.score-board {
+  background-color: $white;
+
+  .title {
+    background-color: $primary;
+    font-family: $font-two;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+    min-height: 25%;
+  }
+
+  p {
+    font-family: $font-two;
+    font-size: 30px;
+    margin-bottom: 0;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .p1-score, .p2-score {
+    font-family: $font_one;
+    font-size: 100px;
+    text-align: center;
+  }
+
+}
+
+// CSS for javascript functions
+.player-1 {
+  color: #24DBA4;
+}
+.player-2 {
+  color: #DB245B,
+}
+
+.player-1, .player-2, .game-over {
+  pointer-events: none;
+}
+
+// Footer CSS
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark;
+  color: $white;
+  font-family: $font_one;
+  font-size: 2rem;
+  width: 100%;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &:hover, a:hover {
+    color: lightblue;
+  }
+
+  i {
+    margin: 5px;
+  }
+
+}
+
+@media (max-width: 992px) {
+
+  header {
+    padding: 80px;
+  }
+
+  .score-board {
+    p {
+      font-size: 80px;
+    }
+
+    .p1-score, .p2-score {
+      font-size: 150px;
+      text-align: center;
+    }
+
+  }
+
+  .btn-primary {
+    width: 95%;
+    font-size: 60px;
+    margin: 60px auto;
+  }
+
+  footer {
+    font-size: 35px;
+  }
+
+}
